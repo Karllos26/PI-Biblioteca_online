@@ -1,6 +1,8 @@
 body, #root, .grid{
   min-height: 100vh;
+
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
