@@ -9,11 +9,11 @@ interface Props{
 export default function Layout(props: Props){
 const {children} = props
     return (
-    <Grid className='grid' templateColumns='1fr' templateRows='auto auto auto 64px'>
+    <Grid className='grid' templateColumns='1fr' templateRows='auto auto auto 64px' >
       <GridItem colSpan={1} rowSpan={1}>
         <Topo />
       </GridItem>
-      <GridItem colSpan={1} rowSpan={2}>
+      <GridItem colSpan={4} rowSpan={2}>
         {children}
       </GridItem>
       <GridItem colSpan={1} rowSpan={1}>
