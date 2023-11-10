@@ -1,16 +1,12 @@
-
-
-import CardsHome from '../../components/CardsHome'
-
 import Layout from '../../components/Layout'
-import HomeCategoria from '../register'
+import HomeBiblioteca from '../../components/HomeComponents/NewHome'
+
 export default function Home() {
   //const [count, setCount] = useState(0)
 
   return (
 <Layout>
-  <CardsHome/>
-  <HomeCategoria/>
+<HomeBiblioteca/>
 </Layout>
   )
 }
