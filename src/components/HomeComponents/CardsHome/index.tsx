@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Card from '../CardLivro';
 import { cardData } from '../ListaLivros/CardData';
-import { Box, Container, Text } from '@chakra-ui/react';
+import { Box, Container, Text, background } from '@chakra-ui/react';
 import { useMediaQuery } from 'react-responsive';
 
 const CardsHome: React.FC = () => {
@@ -28,8 +28,7 @@ const CardsHome: React.FC = () => {
     speed: 500,
     arrows: true,
     slidesToShow: slidesToShow,
-    slidesToScroll: slidesToShow,
-    
+    slidesToScroll: slidesToShow
 
   };
 
@@ -52,6 +51,8 @@ const CardsHome: React.FC = () => {
 
   const randomItems = getItemsByCategory('Mais Lidos', 5);
 
+
+  
   return (
     <Box p={4} maxWidth="100vw">
       <Text textAlign="center" fontSize="3xl" fontWeight="bold" mb={4}>

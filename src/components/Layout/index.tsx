@@ -13,7 +13,11 @@ const {children} = props
       <GridItem colSpan={1} rowSpan={1}>
         <Topo />
       </GridItem>
-      <GridItem colSpan={4} rowSpan={2}>
+      <GridItem colSpan={4} rowSpan={2}
+       bgImage="url('/Egipt.png')" // Substitua pelo caminho real da sua imagem
+       // Garante que a imagem cobre todo o elemento
+       bgPosition='center' // Centraliza a imagem
+      >
         {children}
       </GridItem>
       <GridItem colSpan={1} rowSpan={1}>

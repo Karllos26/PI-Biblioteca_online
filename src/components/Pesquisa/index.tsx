@@ -44,7 +44,7 @@ const SearchPage: React.FC = () => {
   };
 
   return (
-    <Container maxW="90%" mt={12}>
+    <Container maxW="90%"  mt={12}>
       
       <Heading as="h1" size="xl" mt={4} textAlign="center" >
         Pesquisa de Livros

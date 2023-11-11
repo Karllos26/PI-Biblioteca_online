@@ -4,7 +4,7 @@ import SearchPage from "../../components/Pesquisa";
 export default function LayoutPesquisa(){
     return(
         <Layout>
-            <SearchPage/>
+            <SearchPage />
         </Layout>
     )
 }
