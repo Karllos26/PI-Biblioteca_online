@@ -75,7 +75,10 @@ export default function Topo() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}
+            bgImage="url('/Papiro.jpg')" // Substitua pelo caminho real da sua imagem
+            bgSize='cover' // Garante que a imagem cobre todo o elemento
+            bgPosition='center'>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}

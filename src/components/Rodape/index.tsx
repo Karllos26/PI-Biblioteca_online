@@ -62,7 +62,11 @@ export default function Rodape() {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
+      color={useColorModeValue('gray.700', 'gray.200')}
+      bgImage="url('/Papiro.jpg')" // Substitua pelo caminho real da sua imagem
+      bgSize='cover' // Garante que a imagem cobre todo o elemento
+      bgPosition='center'
+      >
       <Container
         as={Stack}
         maxW={'6xl'}

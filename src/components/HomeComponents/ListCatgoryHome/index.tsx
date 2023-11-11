@@ -20,12 +20,12 @@ export default function HomeListaCategoria() {
 
     return (
       <Container maxW="90%" mt={12}>
-        <Flex justify="space-between" flexWrap="wrap" alignItems="center">
+        <Flex justify="space-between" flexWrap="wrap" alignItems="center" bg="rgba(255, 215, 0, 0.7)" borderRadius="10px">
           <Heading size="lg" mb={{ base: 4, md: 0 }}>
             {category}
           </Heading>
           <Link to={`/categoria/${category}`}>
-            <Button variant="outline" colorScheme="blue" size="sm">
+            <Button variant="solid"  size="sm" colorScheme='blue' >
               Ver Mais
             </Button>
           </Link>
