@@ -9,9 +9,11 @@ import {
   VStack,
   Heading,
   Center,
+  Container,
+  Flex,
 } from '@chakra-ui/react';
 import axios from 'axios';
-import { isUserAuthenticated } from './authUtils'; // Importe a função
+import { isUserAuthenticated } from './authUtils';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -28,7 +30,6 @@ function Login() {
       .post('http://localhost:3001/auth/login', loginData)
       .then((response) => {
         localStorage.setItem('token', response.data.token);
-        // Redireciona apenas após o login bem-sucedido
         window.location.href = '/';
       })
       .catch((error) => {
@@ -38,10 +39,11 @@ function Login() {
   };
 
   return (
-    <Center h="100vh">
+    <Flex minH="100vh" alignItems="center" justifyContent="center">
       <VStack spacing={4}>
-        <Heading>Login</Heading>
-        <Box borderWidth="1px" borderRadius="lg" p={4} w="300px">
+        <Box borderWidth="2px" borderRadius="lg" p={4} w="300px" borderColor="black">
+          <Heading>Login</Heading>
+
           <FormControl>
             <FormLabel>Email</FormLabel>
             <Input
@@ -49,6 +51,9 @@ function Login() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              bg="white"
+              border="2px solid black"
+              _hover={{ borderColor: 'yellow.400' }}
             />
           </FormControl>
           <FormControl>
@@ -58,6 +63,9 @@ function Login() {
               placeholder="Senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
+              bg="white"
+              border="2px solid black"
+              _hover={{ borderColor: 'yellow.400' }}
             />
           </FormControl>
           {loginError && (
@@ -65,13 +73,15 @@ function Login() {
               Falha no login. Verifique suas credenciais.
             </Box>
           )}
-          <Button colorScheme="blue" onClick={handleLogin}>
+          <Center>
+          <Button mt={4} colorScheme="blue" onClick={handleLogin}>
             Login
           </Button>
+          </Center>
         </Box>
         <Link to="/usuarios">Criar uma conta</Link>
       </VStack>
-    </Center>
+    </Flex>
   );
 }
 

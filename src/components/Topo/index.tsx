@@ -40,6 +40,8 @@ const NavLink = (props: Props) => {
         bg: useColorModeValue('gray.200', 'gray.700'),
       }}
       href={'#'}
+      position="static" // Adicione esta linha para controlar o posicionamento
+      
     >
       {children}
     </Box>
@@ -87,7 +89,7 @@ export default function Topo() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
+          <HStack spacing={8} alignItems={'center'} >
             <div style={{ width: '64px', height: '64px', borderRadius: '50%', overflow: 'hidden' }}>
               <img
                 src="Logo.png"
@@ -149,6 +151,7 @@ export default function Topo() {
                   <NavLink>{link.texto}</NavLink>
                 </Link>
               ))}
+
             </Stack>
           </Box>
         ) : null}

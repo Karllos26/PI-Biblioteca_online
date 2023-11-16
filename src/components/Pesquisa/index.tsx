@@ -8,7 +8,6 @@ import { cardData } from '../HomeComponents/ListaLivros/CardData';
 import Card from '../HomeComponents/CardLivro';
 import ScrollToTopButton from '../HomeComponents/VoltarTopo';
 
-
 const SearchPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
@@ -44,48 +43,49 @@ const SearchPage: React.FC = () => {
   };
 
   return (
-    <Container maxW="90%"  mt={12}>
-      
-      <Heading as="h1" size="xl" mt={4} textAlign="center" >
-        Pesquisa de Livros
-      </Heading>
-      <Flex mt={4} justifyContent="center" alignItems="center">
-        <Input
-          type="text"
-          placeholder="Pesquisar livros"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyDown}
-          border="2px solid black"
-          _hover={{borderColor: 'yellow.400'}}
-        />
-        <Button
-          ml={2}
-          colorScheme="blue"
-          onClick={handleButtonClick}
-          border="2px"
-          _hover={{borderColor: "black"}}
-          _active={{ bg: 'black' }}
-        >
-          <FaSearch color="yellow" />
-        </Button>
-      </Flex>
-      <Divider my={4} color='black' />
-      {searchResults.length > 0 && (
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-          {searchResults.map((card, index) => (
-            <Card
-              key={index}
-              heading={card.heading}
-              imageUrl={card.imageUrl}
-              href={card.href}
-              rating={card.rating}
-            />
-          ))}
-        </SimpleGrid>
-      )}
-      <ScrollToTopButton/>
-    </Container>
+    <Box p={4} h="100%" minH="100vh" display="flex" flexDirection="column" alignItems="center">
+      <Container maxW="container.lg" mt={12}>
+        <Heading as="h1" size="xl" mt={4} textAlign="center">
+          Pesquisa de Livros
+        </Heading>
+        <Flex mt={4} justifyContent="center" alignItems="center">
+          <Input
+            type="text"
+            placeholder="Pesquisar livros"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
+            border="2px solid black"
+            _hover={{ borderColor: 'yellow.400' }}
+          />
+          <Button
+            ml={2}
+            colorScheme="blue"
+            onClick={handleButtonClick}
+            border="2px"
+            _hover={{ borderColor: 'black' }}
+            _active={{ bg: 'black' }}
+          >
+            <FaSearch color="yellow" />
+          </Button>
+        </Flex>
+        <Divider my={4} color="black" />
+        {searchResults.length > 0 && (
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
+            {searchResults.map((card, index) => (
+              <Card
+                key={index}
+                heading={card.heading}
+                imageUrl={card.imageUrl}
+                href={card.href}
+                rating={card.rating}
+              />
+            ))}
+          </SimpleGrid>
+        )}
+        <ScrollToTopButton />
+      </Container>
+    </Box>
   );
 };
 

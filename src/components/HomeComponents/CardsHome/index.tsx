@@ -54,7 +54,7 @@ const CardsHome: React.FC = () => {
 
   
   return (
-    <Box p={4} maxWidth="100vw">
+    <Box p={4} >
       <Text textAlign="center" fontSize="3xl" fontWeight="bold" mb={4}>
         Destaques
       </Text>

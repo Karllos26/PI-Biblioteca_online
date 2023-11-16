@@ -5,8 +5,8 @@ import ScrollToTopButton from "../VoltarTopo";
 
 export default function HomeBiblioteca() {
   return(
-  <Box maxWidth="100%" overflowX="hidden">
-  <Container maxW="100vw">
+  <Box >
+  <Container >
     <CardsHome />
     <HomeListaCategoria />  
     <ScrollToTopButton/>
