@@ -16,7 +16,7 @@ export default function HomeListaCategoria() {
   const renderItemsByCategory = (category: string) => {
     const filteredData = cardData.filter((data) =>
       data.category?.includes(category)
-    ).slice(0, 5);
+    ).slice(0, 6);
 
     return (
       <Container maxW="90%" mt={12}>
@@ -41,11 +41,13 @@ export default function HomeListaCategoria() {
 
   return (
     <div>
-      {renderItemsByCategory('Classicos')}
-      {renderItemsByCategory('Fantasia')}
-      {renderItemsByCategory('Mais Lidos')}
-      {renderItemsByCategory('Poesias')}
       {renderItemsByCategory('Mais Avaliados')}
+      {renderItemsByCategory('Classicos')}
+      {renderItemsByCategory('Infantil')}
+      {renderItemsByCategory('Fantasia')}
+      {renderItemsByCategory('Ficção')}
+      {renderItemsByCategory('Terror')}
+      {renderItemsByCategory('Romance')}
     </div>
   );
 }
