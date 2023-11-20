@@ -57,6 +57,7 @@ const SearchPage: React.FC = () => {
             onKeyDown={handleKeyDown}
             border="2px solid black"
             _hover={{ borderColor: 'yellow.400' }}
+            backgroundColor='white'
           />
           <Button
             ml={2}
