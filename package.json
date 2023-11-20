@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=18 <=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -26,6 +29,7 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "unorm": "^1.6.0"
+
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Container, Flex, Heading, Button, SimpleGrid } from '@chakra-ui/react';
+import { Container, Flex, Heading, Button, SimpleGrid, Box } from '@chakra-ui/react';
 import { cardData } from '../ListaLivros/CardData';
 import Card from '../CardLivro';
 import ScrollToTopButton from '../VoltarTopo';
 
-const CategoriaPage = () => {
+const CategoriaPage: React.FC = () => {
   const { nomeCategoria } = useParams();
   const categoria = nomeCategoria || '';
 
-  useEffect(() => {
-    window.scrollTo(0, 0); // Rolando para o topo quando a página é acessada
-  }, []);
+ 
 
   // Filtrar os itens da categoria correspondente
   const filteredData = cardData.filter((data) =>
@@ -19,7 +17,8 @@ const CategoriaPage = () => {
   );
 
   return (
-    <Container maxW="100%" mt={12}>
+    <Box p={4}>
+    <Container minH="100vh" maxW="90%" mt={12}>
       <Flex justify="space-between" align="center">
         <Heading size="lg" mb={[4, 0]} flexBasis={['100%', 'auto']}>
           {categoria}
@@ -37,6 +36,7 @@ const CategoriaPage = () => {
       </SimpleGrid>
       <ScrollToTopButton />
     </Container>
+    </Box>
   );
 };
 

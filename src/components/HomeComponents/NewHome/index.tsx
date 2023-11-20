@@ -6,10 +6,10 @@ import ScrollToTopButton from "../VoltarTopo";
 export default function HomeBiblioteca() {
   return(
   <Box >
-  <Container >
+  
     <CardsHome />
     <HomeListaCategoria />  
     <ScrollToTopButton/>
-  </Container>
+  
 </Box>
   )}
