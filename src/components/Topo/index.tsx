@@ -48,6 +48,11 @@ const NavLink = (props: Props) => {
   );
 };
 
+const getLogoPath = () => {
+  // Use uma string vazia para indicar que o caminho é relativo ao diretório 'public'
+  return '/Logo.png';
+};
+
 export default function Topo() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -92,7 +97,7 @@ export default function Topo() {
           <HStack spacing={8} alignItems={'center'} >
             <div style={{ width: '64px', height: '64px', borderRadius: '50%', overflow: 'hidden' }}>
               <img
-                src="Logo.png"
+                src={getLogoPath()}
                 alt="Logo"
                 style={{ width: '100%', height: '100%' }}
               />

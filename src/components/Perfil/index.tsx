@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Heading,
@@ -10,13 +10,13 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import axios from 'axios';
 
 // Define um tipo para os dados do usuário
 type UserData = {
   name: string;
   email: string;
   password: string;
+  photoUrl?: string;
 };
 
 const PerfilUsuario = () => {
@@ -24,38 +24,16 @@ const PerfilUsuario = () => {
   const [visualizarSenha, setVisualizarSenha] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('token'); // Obtenha o token do localStorage
-
-    if (!token) {
-      // Lidar com a ausência de token, por exemplo, redirecionar para a tela de login
-      return;
-    }
-
-    const buscarDadosUsuario = async () => {
-      try {
-        const token = localStorage.getItem('token'); // Obtenha o token do localStorage
-
-        if (!token) {
-          console.error('Token ausente'); // Verifique se o token está presente
-          return;
-        }
-
-        console.log('Token:', token);
-
-        const response = await axios.get('http://localhost:3001/auth/me', {
-          headers: {
-            Authorization: token, // Use o token armazenado no localStorage
-          },
-        });
-        console.log('Resposta da API:', response);
-
-        setDadosUsuario(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados do usuário', error);
-      }
+    // Simulação de dados do usuário
+    const dadosSimulados: UserData = {
+      name: 'Usuário de Teste',
+      email: 'teste@example.com',
+      password: 'senha123',
+      photoUrl: 'https://via.placeholder.com/150', // URL da imagem simulada
     };
 
-    buscarDadosUsuario();
+    // Atualiza o estado com os dados simulados
+    setDadosUsuario(dadosSimulados);
   }, []);
 
   const toggleVisualizarSenha = () => {
@@ -63,11 +41,7 @@ const PerfilUsuario = () => {
   };
 
   return (
-    <Flex
-      align="center"
-      justify="center"
-      height="100vh"
-    >
+    <Flex align="center" justify="center" height="100vh">
       <Box p={4} border="2px solid black" borderRadius="xl" maxWidth="400px">
         <Heading as="h2" size="lg" mb={4}>
           Perfil do Usuário
@@ -96,6 +70,12 @@ const PerfilUsuario = () => {
             {visualizarSenha ? 'Ocultar Senha' : 'Mostrar Senha'}
           </Button>
         </FormControl>
+        {dadosUsuario?.photoUrl && (
+          <FormControl mt={2}>
+            <FormLabel>Imagem</FormLabel>
+            <img src={dadosUsuario.photoUrl} alt="Imagem do usuário" />
+          </FormControl>
+        )}
       </Box>
     </Flex>
   );

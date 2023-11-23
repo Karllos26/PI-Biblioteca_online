@@ -14,7 +14,7 @@ const {children} = props
         <Topo />
       </GridItem>
       <GridItem colSpan={4} rowSpan={2}
-       bgImage="url('/Egipt.png')" // Substitua pelo caminho real da sua imagem
+       bgImage="url('/Egipt.png')" 
        // Garante que a imagem cobre todo o elemento
        bgPosition='center' // Centraliza a imagem
       >

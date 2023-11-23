@@ -24,7 +24,7 @@ export default function HomeListaCategoria() {
           <Heading size="lg" mb={{ base: 4, md: 0 }}>
             {category}
           </Heading>
-          <Link to={`/${category}`}>
+          <Link to={`categoria/${category}`}>
             <Button variant="solid"  size="sm" colorScheme='blue' >
               Ver Mais
             </Button>
