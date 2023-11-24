@@ -22,7 +22,7 @@ export default class User extends BaseEntity {
 
   @Column()
   @IsNotEmpty({ message: 'Senha is required' })
-  passowrd!: string
+  password!: string
 
   @Column()
   type!: string
