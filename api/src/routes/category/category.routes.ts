@@ -1,21 +1,21 @@
 import { Router } from 'express'
 import CategoryController from '../../controllers/category/category.controller'
 
-const router = Router()
+const categoryRouter = Router()
 
 // Criar uma categoria
-router.post('/categories', CategoryController.createCategory);
+categoryRouter.post('/', CategoryController.createCategory);
 
 // Obter todas as categorias
-router.get('/categories', CategoryController.getAllCategories);
+categoryRouter.get('/', CategoryController.getAllCategories);
 
 // Obter uma categoria por ID
-router.get('/categories/:id', CategoryController.getCategoryById);
+categoryRouter.get('/:id', CategoryController.getCategoryById);
 
 // Atualizar uma categoria por ID
-router.put('/categories/:id', CategoryController.updateCategory);
+categoryRouter.put('/:id', CategoryController.updateCategory);
 
 // Excluir uma categoria por ID
-router.delete('/categories/:id', CategoryController.deleteCategory);
+categoryRouter.delete('/:id', CategoryController.deleteCategory);
 
-export default router;
+export default categoryRouter;

@@ -5,7 +5,7 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from 'typeorm'
 @Entity()
 export default class Book extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id?: number;
 
   @Column()
   @IsNotEmpty({ message: 'Heading is required' })
@@ -15,8 +15,8 @@ export default class Book extends BaseEntity {
   @IsNotEmpty({ message: 'Image URL is required' })
   imageUrl!: string;
 
-  @Column()
-  description!: string;
+  @Column({nullable: true})
+  description?: string;
 
   @Column()
   @IsNotEmpty({ message: 'Href is required' })
@@ -27,6 +27,6 @@ export default class Book extends BaseEntity {
   @ArrayMinSize(1, { message: 'At least one category is required' })
   category!: string[];
 
-  @Column()
-  rating!: number;
+  @Column({nullable: true})
+  rating?: number;
 }

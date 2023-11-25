@@ -2,21 +2,21 @@ import { Router } from 'express'
 import UserController from '../../controllers/user/user.controller'
 
 
-const router = Router();
+const userRouter = Router();
 
 // Criar um usuário
-router.post('/users', UserController.createUser);
+userRouter.post('/', UserController.createUser);
 
 // Obter todos os usuários
-router.get('/users', UserController.getAllUsers);
+userRouter.get('/', UserController.getAllUsers);
 
 // Obter um usuário por ID
-router.get('/users/:id', UserController.getUserById);
+userRouter.get('/:id', UserController.getUserById);
 
 // Atualizar um usuário por ID
-router.put('/users/:id', UserController.updateUser);
+userRouter.put('/:id', UserController.updateUser);
 
 // Excluir um usuário por ID
-router.delete('/users/:id', UserController.deleteUser);
+userRouter.delete('/:id', UserController.deleteUser);
 
-export default router;
+export default userRouter;
