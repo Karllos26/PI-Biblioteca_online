@@ -1,3 +1,5 @@
+// components/Login.tsx
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -9,33 +11,39 @@ import {
   VStack,
   Heading,
   Center,
-  Container,
   Flex,
 } from '@chakra-ui/react';
-import axios from 'axios';
-import { isUserAuthenticated } from './authUtils';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [loginError, setLoginError] = useState(false);
 
-  const handleLogin = () => {
-    const loginData = {
-      email: email,
-      password: senha,
-    };
+  const handleLogin = async () => {
+    try {
+      const loginData = {
+        email: email,
+        password: senha,
+      };
 
-    axios
-      .post('http://localhost:3001/auth/login', loginData)
-      .then((response) => {
-        localStorage.setItem('token', response.data.token);
-        window.location.href = '/';
-      })
-      .catch((error) => {
-        console.error('Erro de login:', error);
-        setLoginError(true);
+      const response = await fetch('http://localhost:3001/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
       });
+
+      if (!response.ok) {
+        throw new Error('Credenciais inválidas');
+      }
+
+      console.log('Autenticação bem-sucedida');
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Erro de login:', error);
+      setLoginError(true);
+    }
   };
 
   return (
@@ -74,9 +82,9 @@ function Login() {
             </Box>
           )}
           <Center>
-          <Button mt={4} colorScheme="blue" onClick={handleLogin}>
-            Login
-          </Button>
+            <Button mt={4} colorScheme="blue" onClick={handleLogin}>
+              Login
+            </Button>
           </Center>
         </Box>
         <Link to="/usuarios">Criar uma conta</Link>

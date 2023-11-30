@@ -26,8 +26,8 @@ const Cadastro = () => {
     };
 
     axios
-      .post('http://localhost:3001/auth/register', cadastroData)
-      .then((response) => {
+      .post('http://localhost:3001/user/register', cadastroData)
+      .then(() => {
         setMensagem('Cadastro realizado com sucesso');
       })
       .catch((error) => {

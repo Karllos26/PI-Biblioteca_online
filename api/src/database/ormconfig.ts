@@ -1,6 +1,7 @@
 import { DataSource } from 'typeorm'
 import dotenv from 'dotenv'
 import Book from '../models/Book'
+import User from '../models/User'
 
 dotenv.config() // carrega as variáveis de ambiente do arquivo .env
 
@@ -18,6 +19,7 @@ dataBase.initialize()
   .then(() => {
     console.log(`Banco de dados inicializado`);
     //startBooks()
+    //startUsers()
   })
   .catch((err) => {
     console.error(`Erro ao inicializar o banco de dados`, err);
@@ -244,4 +246,26 @@ export const books = [
         category: ['Ficção'],
         rating: 3,
       }
+      
+];
+function startUsers() {
+  const usersRepository = User;
+
+  users.forEach(async (u) => {
+    const user = new User();
+    user.name = u.name;
+    user.email = u.email;
+    user.password = u.password;
+    user.type = u.type;
+    await user.save();
+  });
+}
+
+export const users = [
+  {
+    name: 'adm',
+    email: 'adm@adm.com',
+    password: 'adm',
+    type: 'adm',
+  },
 ];
